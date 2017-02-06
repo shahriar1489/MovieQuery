@@ -27,27 +27,29 @@ function addMovie( movie ){
 
 }
 
-var newMovie = {"Dark Knight", "2008", 160, '8.0', 'thriller'};
+var newMovie = {"Dark Knight", "2008", 152, '9.0', 'thriller'};
 
-console.log(JSON.stringify(addMovie(newMovie)));
+console.log(JSON.stringify(addMovie(newMovie)));  // 12:46 convert to string 
 
 function movieByRating(){
-  var arr =[], arr2=[];
+  var arr =[], visit=[]; // 12:46 created second array to store movie data 
   for (var i = 0; i < movieList.length; i++) {
     arr.push(parseFloat(movieList[i].rating));
+    visit.push(false);  // 12:47 
+    //movieList[i].rating =  parseFloat(movieList[i].rating); // 12:49
   }
-  arr.sort();
+  arr.sort(); // 12:50 sorting the array in order of imdb rating 
   //console.log(arr.length);
-  for (var i = 0; i < arr.length; i++){
-
-  console.log(arr[i]);
-  }
+  //for (var i = 0; i < arr.length; i++){
+  //console.log(arr[i]);
+  //}
 for (var i = 0; i < arr.length; i++)
 {
-  for (var j = 0; j < arr.length; j++)
+  for (var j = 0; j < movieList.length; j++)
   {
-    if (arr[i] == parseFloat(movieList[j].rating))
+    if (arr[i] == parseFloat(movieList[j].rating) && visit[j] == false) // 
     {
+      visit[j] = true;  // 12:56 check this and make sure it's alright LEFT IT HERE
       console.log(movieList[i]);
     }
   }
