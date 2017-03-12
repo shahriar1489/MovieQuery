@@ -15,7 +15,7 @@ function getMovieTitle( index )
 }
 
 console.log();
-console.log(getMovieTitle(3));  //
+console.log(getMovieTitle(3));
 
 function addMovie( movie )
 {
@@ -41,18 +41,15 @@ console.log(movieByRating());
 
 console.log("---------------------------------------------------------------");
 
-function findByTitle( title ){
-  var found = [];
-  var x = 0;
+function findByTitle( title )
+{
+  var fbt = [];
   for (var i = 0; i < movieList.length; i++)
   {
     if (movieList[i].title.search(title) != -1)
-    {
-      found[x] = movieList[i];
-      ++x;
-    }
+      fbt.push(movieList[i]);
   }
-  return JSON.stringify(found); // because multiple movie may have the same title
+  return JSON.stringify(fbt); // because multiple movie may have the same title
 }
 
 console.log();
